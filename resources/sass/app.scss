@@ -6,3 +6,111 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+//_------- FUENTES PERSONALIZADAS MONTSERRAT --------//
+@font-face {
+    font-family: 'Montserrat-Black';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../public/fonts/Montserrat-Black.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../../public/fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-Medium';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../public/fonts/Montserrat-Medium.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../public/fonts/Montserrat-SemiBold.ttf');
+}
+
+body {
+    font-family: 'Montserrat-Medium',sans-serif;
+}
+.my_font_text{
+    font-family: 'Montserrat-Medium', sans-serif;
+}
+.hover_image {
+    background: white;
+    //background: #edf0f2;
+}
+
+.hover_image:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    transition: .5s ease;
+    background-color: #0080FE;
+    color: #0080FE;
+}
+.hover_image_png:hover{
+    transform: scale(1.03);
+    opacity: 0.8;
+    transition: .5s ease;
+}
+.my_btn_primary{
+    color: white;
+    background:  #0080FE;
+}
+.my_btn_primary:hover {
+    opacity: 0.8;
+    transition: .5s ease;
+    background-color: #0084ff;
+    color: white;
+}
+.my_text_blue{
+    color: #0080FE;
+    font-family: 'Montserrat-Bold', sans-serif;
+}
+.my_text_white{
+    //color: white;
+    font-family: 'Montserrat-SemiBold', sans-serif;
+}
+.my_text_white:hover{
+    color: #0080FE;
+}
+
+hr.my_own_hr {
+    color:  #0080FE;
+    border: 1px solid #0080FE;
+    border-radius: 2px;
+    opacity: 1 !important;
+}
+.my_img_thumbnail{
+    border:none !important;
+}
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    //background-color: #000000; /* Establece el color de fondo deseado */
+    //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra, si lo deseas */
+    z-index: 1000; /* Asegura que esté en el nivel superior */
+}
+
+.hidden-button {
+    display: none;
+}
+
+.div_principal:hover .hidden-button {
+    display: block;
+}
+.tuto_color{
+    color:#19e619;
+}
+.cuoh_color{
+    color: #ad8a1f;
+}
+.lizzi_color{
+    color:#883dbf;
+}
+

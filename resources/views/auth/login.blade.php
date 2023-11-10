@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
+                <p class="text-lg font-medium underline underline-offset-8">The quick brown fox jumps over the lazy dog.</p>
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

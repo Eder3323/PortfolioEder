@@ -1,76 +1,72 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Eder') }}</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css" id="modoClaro">
+    <link rel="stylesheet" href="/css/styles-dark.css" id="modoOscuro" disabled>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
+<header class="navbar navbar-expand-md fixed-header navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="img-thumbnail img-fluid w-100 my_img_thumbnail rounded-3" style="max-width: 120px;" src="{{asset('images/EDEV.png')}}" alt="eder" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio"><h5 class="my_text_white">Inicio</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#proyectos"><h5 class="my_text_white">Proyectos</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#habilidades"><h5 class="my_text_white">Habilidades</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about"><h5 class="my_text_white">Sobre Mí</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto"><h5 class="my_text_white">Contacto</h5></a>
+                </li>
+            </ul>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="modoSwitch" checked>
+            <label class="form-check-label my_text_blue" for="modoSwitch">Modo Oscuro</label>
+        </div>
+    </div>
+</header>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'PortFolio Eder') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
+        <main class="my-5">
             @yield('content')
         </main>
     </div>
+{{--@livewireScriptConfig--}}
+{{--    <script src="https://kit.fontawesome.com/b6ed169e1f.js" crossorigin="anonymous"></script>--}}
+<script>
+    const modoSwitch = document.getElementById('modoSwitch');
+    const htmlElement = document.querySelector('html');
+
+    modoSwitch.addEventListener('change', () => {
+        if (modoSwitch.checked) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+        }
+    });
+</script>
 </body>
 </html>
