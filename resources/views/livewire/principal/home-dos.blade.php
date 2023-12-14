@@ -1,5 +1,47 @@
 <div>
-    <div id="inicio" class="container">
+    <header class="navbar navbar-expand-md fixed-header navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="img-thumbnail img-fluid w-100 my_img_thumbnail rounded-3" style="max-width: 120px;" src="{{asset('images/EDEV.png')}}" alt="eder" >
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><h5 class="my_text_white">{{__('messages.header_home')}}</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects"><h5 class="my_text_white">{{__('messages.header_projects')}}</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills"><h5 class="my_text_white">{{__('messages.header_skills')}}</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><h5 class="my_text_white">{{__('messages.header_about')}}</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><h5 class="my_text_white">{{__('messages.header_contact')}}</h5></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-check form-switch me-2">
+                <input class="form-check-input" type="checkbox" id="modoSwitch" checked>
+                <label class="form-check-label my_text_blue" for="modoSwitch">{{__('messages.dark_mode')}}</label>
+            </div>
+            <button type="button" class="btn btn-primary" wire:click="change">
+                <i class="fa-solid fa-repeat" style="color: #ffffff;"></i>
+                @if($language=='en')
+                    {{__('messages.language')}}<span class="flag-icon flag-icon-mx"></span>
+                @else
+                    {{__('messages.language')}}
+                    <span class="flag-icon flag-icon-us"></span>
+                @endif
+            </button>
+        </div>
+    </header>
+    <div id="home" class="container">
         <div class="row justify-content-center">
             <div class="col-md-4 p-1">
                 <div class="d-flex justify-content-center align-items-center my-3">
@@ -14,20 +56,19 @@
                 <div class="d-flex justify-content-start align-items-start mb-4">
                     <h3 class="my_text_blue strong"> {{__('Php Full Stack Developer />')}}</h3>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <hr class="my_own_hr">
                 </div>
                 <div class="d-flex justify-content-start align-items-start mt-3 my_font_text">
-                    <h4 class="m-0 d-none d-lg-block">{{__('Desarrollador Full-Stack con más de tres años de experiencia, especializado en frameworks PHP como')}}<strong class="my_text_blue"> {{' Laravel '}}</strong> {{__(' y ')}}<strong class="my_text_blue"> {{' CodeIgniter'}}</strong> {{__('. Amplio conocimiento en metodologías ágiles, gestión de proyectos, excelentes habilidades de comunicación y coordinación de equipos.')}}</h4>
-                    <h5 class="m-0 d-lg-none">{{__('Desarrollador Full-Stack con más de tres años de experiencia, especializado en frameworks PHP como')}}<strong class="my_text_blue"> {{' Laravel '}}</strong> {{__(' y ')}}<strong class="my_text_blue"> {{' CodeIgniter'}}</strong> {{__('. Amplio conocimiento en metodologías ágiles, gestión de proyectos, excelentes habilidades de comunicación y coordinación de equipos.')}}</h5>
+                    <h4 class="m-0 d-none d-lg-block"> {{__('messages.home_description')}} <strong class="my_text_blue">{{__('messages.home_description2')}}</strong> {{__('messages.home_description3')}} <strong class="my_text_blue"> {{__('messages.home_description4')}}</strong>{{__('messages.home_description5')}}</h4>
+                    <h5 class="m-0 d-lg-none"> {{__('messages.home_description')}} <strong class="my_text_blue">{{__('messages.home_description2')}}</strong> {{__('messages.home_description3')}} <strong class="my_text_blue"> {{__('messages.home_description4')}}</strong>{{__('messages.home_description5')}}</h5>
                 </div>
-                <div class="text-end">
-                    <h3 class="my_text_blue d-none d-lg-block">{{__('______________')}}</h3>
-                    <h3 class="my_text_blue d-lg-none">{{__('_____')}}</h3>
+                <div class="col-2">
+                    <hr class="my_own_hr">
                 </div>
                 <div class="d-flex justify-content-start align-items-start mt-3">
                     <a class="p-0 m-0 " target="_blank" href="https://drive.google.com/file/d/17chF6XqrAgs70rcAh9cNSYACQzT3Tckw/view?usp=sharing">
-                        <button type="button" class="btn btn-lg my_btn_primary mx-2"> Descargar CV</button>
+                        <button type="button" class="btn btn-lg my_btn_primary mx-2"> {{__('messages.home_download_cv')}}</button>
                     </a>
                     <a href="https://github.com/Eder3323" target="_blank" class="p-0 m-0 mx-2 rounded-3 pe-auto">
                         <img src="{{asset('images/github2.svg')}}" class="img-thumbnail hover_image" height="50px" width="50px" alt="EDer" >
@@ -40,13 +81,13 @@
         </div>
     </div>
     {{--    PROYECTOS --}}
-    <div id="proyectos" class="container mt-5 ">
+    <div id="projects" class="container mt-5 ">
         <div class="row pt-3">
-            <div class="col-md-4 p-1">
-            </div>
-            <div class="col-md-8">
-                <div class="d-flex justify-content-start align-content-start">
-                    <h1 class="strong"> {{'PROYECTOS'}}</h1>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="d-flex justify-content-center align-content-center">
+                        <h1 class="strong"> {{__('messages.header_projects')}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="row mb-4">
@@ -61,7 +102,7 @@
                         </div>
                     </div>
                     <div class="row py-1 align-items-center">
-                        <h6 class="m-0">{{__('Sistema de gestión de energía eléctrica, administrador de usuarios, medidores, clientes y registros de consumo energético, además de un directorio de contactos.')}}</h6>
+                        <h6 class="m-0">{{__('messages.projects_tuto')}}</h6>
                     </div>
                     <div class=" row py-1">
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -84,7 +125,7 @@
                             <h4><strong class="text-info">Xibalba Shoes</strong></h4>
                         </div>
                         <div class="row py-1 align-items-center">
-                            <h6 class="m-0">{{__('Desarrollo de un e-commerce con Laravel, MySQL, Node.js, Git, Tailwind CSS, montado en servidor Linux, el desarrollo implico la base de datos y su desarrollo Full-Stack.')}}</h6>
+                            <h6 class="m-0">{{__('messages.projects_xibalba')}}</h6>
                         </div>
                         <div class=" row py-1">
                             <div class="col-12 d-flex justify-content-center align-items-center">
@@ -107,7 +148,7 @@
                             <h4><strong class="text-primary">Micop's</strong></h4>
                         </div>
                         <div class="row py-1 align-items-center">
-                            <h6 class="m-0">{{__('Sistema de contabilidad basado en aplicación web para gestionar recursos administrativos y financieros del departamento de contabilidad.')}}</h6>
+                            <h6 class="m-0">{{__('messages.projects_micops')}}</h6>
                         </div>
                         <div class=" row py-1">
                             <div class="col-12 d-flex justify-content-center align-items-center">
@@ -122,7 +163,7 @@
                     </div>
                 </div>
             </div>
-{{--            here--}}
+{{--            the middle--}}
             <div class="row mb-2">
                 <div id="project_4" class="col-lg-4 col-md-6 col-sm-12 " >
                     <div id="div_principal"  class="border border-primary rounded p-2 hover_image_png div_principal">
@@ -136,7 +177,7 @@
                             </div>
                         </div>
                         <div class="row py-1 align-items-center">
-                            <h6 class="m-0">{{__('Página principal de la universidad CUOH "Centro Universitario del Oriente de Hidalgo", el desarrollo solo fue sólo un prototipo para la universidad el cual no se le dio seguimiento.')}}</h6>
+                            <h6 class="m-0">{{__('messages.projects_cuoh')}}</h6>
                         </div>
                         <div class=" row py-1">
                             <div class="col-12 d-flex justify-content-center align-items-center">
@@ -158,7 +199,7 @@
                             <h4><strong class="text-info">Agenda Digital</strong></h4>
                         </div>
                         <div class="row py-1 align-items-center">
-                            <h6 class="m-0">{{__('Desarrollo de una agenda en aplicación web que gestionaba las relaciones con los compradores y vendedores. Permitía el registro de contactos y proporcionaba notificaciones programadas.')}}</h6>
+                            <h6 class="m-0">{{__('messages.projects_agenda')}}</h6>
                         </div>
                         <div class=" row py-1">
                             <div class="col-12 d-flex justify-content-center align-items-center">
@@ -181,7 +222,7 @@
                             <h4><strong class="lizzi_color">Licy</strong></h4>
                         </div>
                         <div class="row py-1 align-items-center">
-                            <h6 class="m-0">{{__('Proyecto de gestión y seguimiento de licitaciones públicas de la CFE. El sistema administraba actualizaciones de fechas de entrega y documentos necesarios para participar en licitaciones con IA.')}}</h6>
+                            <h6 class="m-0">{{__('messages.projects_lizzi')}}</h6>
                         </div>
                         <div class=" row py-1">
                             <div class="col-12 d-flex justify-content-center align-items-center">
@@ -199,13 +240,13 @@
         </div>
     </div>
     {{--    HABILIDADES --}}
-    <div id="habilidades" class="container mt-5">
+    <div id="skills" class="container mt-5">
         <div class="row pt-3">
-            <div class="col-md-4 p-1">
-            </div>
-            <div class="col-md-8">
-                <div class="d-flex justify-content-start align-items-start">
-                    <h1 class="strong"> {{'HABILIDADES'}}</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h1 class="strong"> {{__('messages.header_skills')}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
@@ -214,7 +255,7 @@
                     <tr>
                         <th scope="col" class="">Back-end</th>
                         <th scope="col" class="">Front-end</th>
-                        <th scope="col" class="">Bases De Datos</th>
+                        <th scope="col" class="">{{__('messages.skills_database')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -267,21 +308,22 @@
     {{--    SOBRE MI --}}
     <div id="about" class="container mt-5">
         <div class="row pt-3">
-            <div class="col-md-4 p-1"></div>
-            <div class="col-md-8">
-                <div class="d-flex justify-content-start align-items-start">
-                    <h1 class="strong"> {{'SOBRE MI'}}</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h1 class="strong"> {{__('messages.header_about')}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-5 text-center"><hr class="my_own_hr"></div>
-                <div class="col-4"></div>
+                <div class="col-5 text-center">
+                    <hr class="my_own_hr">
+                </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-start align-items-start mt-3 my_font_text">
-                    <h4 class="m-0 d-none d-lg-block"><strong class="my_text_blue"> {{'¡Hola Soy Eder!'}}</strong> {{__(' Me encanta aprender por mi cuenta a través de aplicaciones educativas como Netacad (Cisco Networking Academy), SoloLearn y Duolingo, de vez en cuando me gusta escuchar charlas TED sobre cómo funciona el cerebro, atención plena y meditación. Me apasionan los retos y considero que no hay cosa que no se pueda lograr en el mundo de la tecnología, durante mi carrera como programador me he econtrado con cosas que jamás pense que lograría realizar pero todo es cuestion de compromiso y las ganas de querer hacerlo realidad.')}}</h4>
-                    <h5 class="m-0 d-lg-none"> <strong class="my_text_blue"> {{'¡Hola Soy Eder!'}}</strong>{{__(' Me encanta aprender por mi cuenta a través de varias educativas como Netacad (Cisco Networking Academy), SoloLearn y Duolingo, de vez en cuando me gusta escuchar charlas TED sobre cómo funciona el cerebro, atención plena y meditación. Me apasionan los retos y considero que no hay cosa que no se pueda lograr en el mundo de la tecnología, durante mi carrera como programador me he econtrado con cosas que jamás pense que lograría realizar pero todo es cuestion de compromiso y las ganas de querer hacerlo realidad.')}}</h5>
+                    <h4 class="m-0 d-none d-lg-block"><strong class="my_text_blue"> {{__('messages.about_description1')}}</strong> {{__('messages.about_description2')}}</h4>
+                    <h5 class="m-0 d-lg-none"><strong class="my_text_blue"> {{__('messages.about_description1')}}</strong> {{__('messages.about_description2')}}</h5>
                 </div>
             </div>
             <div class="row mt-4">
@@ -293,39 +335,39 @@
     </div>
 
     {{--    CONTACTO --}}
-    <div id="contacto" class="container mt-4">
+    <div id="contact" class="container mt-4">
         <div class="row pt-3">
-            <div class="col-md-4 p-1">
-            </div>
-            <div class="col-md-8 mb-4">
-                <div class="d-flex justify-content-start align-items-start">
-                    <h1 class="strong"> {{'CONTACTO'}}</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h1 class="strong"> {{__('messages.header_contact')}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="col-6">
                     <form wire:submit="sent_email">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nombre</label>
+                            <label for="name" class="form-label">{{__('messages.contact_name')}}</label>
                             <input type="text" class="form-control" id="name" name="name" wire:model.live="name" required>
                             <div class="text-danger">@error('name') {{ $message }} @enderror</div>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Correo</label>
+                            <label for="email" class="form-label">{{__('messages.contact_email')}}</label>
                             <input type="email" class="form-control" id="email" name="email" wire:model.live="email" required>
                             <div class="text-danger">@error('email') {{ $message }} @enderror</div>
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje</label>
+                            <label for="message" class="form-label">{{__('messages.contact_message')}}</label>
                             <textarea class="form-control" id="message" name="message" rows="4" wire:model.live="message" required></textarea>
                             <div class="text-danger">@error('message') {{ $message }} @enderror</div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <button type="submit" class="btn btn-primary me-2">Enviar</button>
+                            <button type="submit" class="btn btn-primary me-2">{{__('messages.contact_send')}}</button>
                             <h5><strong class="text-success"> {{$this->email_message}}</strong></h5>
                             <div wire:loading >
                                 <img src="{{asset('images/spin.gif')}}" class="img-thumbnail my_img_thumbnail" height="30px" width="30px" alt="EDer" >
-                                Procesando ...
+                                {{__('messages.contact_process')}}
                             </div>
                         </div>
                     </form>
